@@ -1,4 +1,7 @@
 *.class
+# eclipse file #
+.class
+.project
 
 # Package Files #
 *.jar
