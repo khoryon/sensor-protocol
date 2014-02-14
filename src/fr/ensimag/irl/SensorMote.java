@@ -31,6 +31,9 @@ public class SensorMote extends AbstractApplicationMote implements HuffmanCode {
     @Override
     public void receivedPacket(RadioPacket p) {
       /* Receive a packet */
+    	//Le paquet est un paquet de type PaquetMac
+    	PaquetMac packet = (PaquetMac) p;
+    	log(String.valueOf(packet.getPacketData()));
     }
     
     @Override
