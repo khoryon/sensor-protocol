@@ -28,12 +28,34 @@ public class SensorMote extends AbstractApplicationMote implements HuffmanCode {
       /* Start sending traffic */
     }
 
-    @Override
+    //TODO Definir la fonction getRoute et ses paramètres.
+    private void getRoute() {
+	}
+
     public void receivedPacket(RadioPacket p) {
-      /* Receive a packet */
-    	//Le paquet est un paquet de type PaquetMac
-    	PaquetMac packet = (PaquetMac) p;
-    	log(String.valueOf(packet.getPacketData()));
+      /* Receive a packet : 
+       * Conversion en FrameMac
+       * Récuperation destination
+       * Analyse Destination
+       * 	Elimination eventuel bourrae
+       * 	Si pour nous on remonte les donnees
+       * 	Sinon on fait suivre */
+    	Frame packet;
+    	BitSet dest;
+    	int pos;
+		try {
+			packet = new Frame(p);
+	    	log(String.valueOf(packet.getPacketData()));
+	    	//dest = packet.getDestination();
+	    	//pos = dest.nextSetBit(0);
+	    	//Supprimer son ID de la route 
+	    		    	
+
+
+		} catch (FormatPacketException e) {
+			// TODO Auto-generated catch block
+			log("Packet non reconnu.");;
+		}
     }
     
     @Override
