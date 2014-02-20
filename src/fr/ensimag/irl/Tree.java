@@ -10,16 +10,19 @@ public class Tree implements Comparable<Tree> {
 	private Tree left;
 	private Tree right;
 	private float weight;
+	private SensorMote mote;
 	
-	public Tree(float weight) {
+	public Tree(float weight, SensorMote mote) {
 		left = right = null;
 		this.weight = weight;
+		this.mote = mote;
 	}
 	
 	public Tree(Tree left, Tree right) {
 		this.left = left;
 		this.right = right;
 		weight = left.weight + right.weight;
+		mote = null;
 	}
 
 	public List<BitSet> code() {
